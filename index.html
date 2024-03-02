@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zonijeva monetarna enigma</title>
+    <!-- Include any CSS stylesheets if needed -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: #000; /* Background color set to black */
+            color: #fff; /* Text color set to white */
+        }
+        label {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .input-container {
+            display: none; /* Hide the input containers initially */
+            align-items: center;
+        }
+        #inputX, #inputX1, #currency {
+            width: 100%;
+            flex: 1;
+            margin-right: 30px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px; /* Adjusted padding */
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        #sumDisplay {
+            text-align: center; /* Center align sum display */
+            margin-top: 20px; /* Added margin top */
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .image-container img {
+            width: 150px; /* Adjusted image width */
+            height: auto;
+            display: none; /* Hide images by default */
+        }
+        .additional-info {
+            display: none; /* Hide additional info initially */
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zonijeva monetarna enigma</h1>
+
+    <!-- Dropdown Menu for Currency Selection -->
+    <label for="currency">Valuta</label>
+    <select id="currency">
+        <option value="dinar">dinar</option>
+        <option value="marka">marka</option>
+        <option value="euro">euro</option>
+        <option value="kruna">kruna</option>
+        <option value="denar">denar</option>
+        <option value="grosa">grosa</option>
+    </select>
+
+    <!-- Input Field for Number X -->
+    <label for="inputX">KOLKI JE RACUN:</label>
+    <input type="number" id="inputX" placeholder="Unesite iznos">
+
+    <!-- Input Field for Tip (Baksis) -->
+    <label for="inputX1">BAKSIS:</label>
+    <input type="number" id="inputX1" placeholder="Unesite baksis">
+
+    <!-- Button to Calculate Sum -->
+    <button onclick="calculate()">Izračunaj Sumu</button>
+
+    <!-- Field to Display the Sum -->
+    <div id="sumDisplay"></div>
+
+    <!-- Images -->
+    <div class="image-container" id="imageContainer">
+        <img src="C:/Users/Dell/Desktop/Zonijev monetarni kalulator/Zonijev-monetarni-kalkulator/Images/1.jpg" alt="Image 1" style="width: 150px;">
+        <img src="C:/Users/Dell/Desktop/Zonijev monetarni kalulator/Zonijev-monetarni-kalkulator/Images/2.jpg" alt="Image 2" style="width: 150px;">
+        <img src="C:/Users/Dell/Desktop/Zonijev monetarni kalulator/Zonijev-monetarni-kalkulator/Images/3.jpg" alt="Image 3" style="width: 200px;">
+        <img src="C:/Users/Dell/Desktop/Zonijev monetarni kalulator/Zonijev-monetarni-kalkulator/Images/4.jpg" alt="Image 4" style="width: 150px;">
+        <img src="C:/Users/Dell/Desktop/Zonijev monetarni kalulator/Zonijev-monetarni-kalkulator/Images/5.jpg" alt="Image 5" style="width: 150px;">
+        <img src="C:/Users/Dell/Desktop/Zonijev monetarni kalulator/Zonijev-monetarni-kalkulator/Images/6.jpg" alt="Image 6" style="width: 300px;">
+    </div>
+
+    <!-- Additional Information -->
+    <div class="additional-info" id="additionalInfo">
+        <p>DODJU TI</p>
+        <div class="input-container">
+            <label for="stevdza">Stevdza:</label>
+            <input type="text" id="stevdza" readonly>
+        </div>
+        <div class="input-container">
+            <label for="nele">Nele:</label>
+            <input type="text" id="nele" readonly>
+        </div>
+        <div class="input-container">
+            <label for="igor">Igor:</label>
+            <input type="text" id="igor" readonly>
+        </div>
+    </div>
+
+    <!-- Include your JavaScript code -->
+    <script>
+        function calculate() {
+            calculateSum();
+            var inputX = parseFloat(document.getElementById('inputX').value);
+            var inputX1 = parseFloat(document.getElementById('inputX1').value);
+            displayImages(inputX, inputX1);
+            displayAdditionalInfo(); // Show additional info
+        }
+
+        function calculateSum() {
+            var inputX = parseFloat(document.getElementById('inputX').value);
+            var inputX1 = parseFloat(document.getElementById('inputX1').value);
+            var sum = inputX + inputX1;
+            document.getElementById('sumDisplay').innerText = 'Suma: ' + sum;
+        }
+
+        function displayImages(x, x1) {
+            var value = (100 * x1) / x;
+            var container = document.getElementById('imageContainer');
+            var images = container.getElementsByTagName('img');
+
+            // Hide all images first
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+
+            // Show images based on value
+            switch (true) {
+                case value <= 10:
+                    document.querySelector('img[src$="1.jpg"]').style.display = 'inline-block';
+                    break;
+                case value <= 30:
+                    document.querySelector('img[src$="2.jpg"]').style.display = 'inline-block';
+                    break;
+                case value <= 60:
+                    document.querySelector('img[src$="3.jpg"]').style.display = 'inline-block';
+                    break;
+                case value <= 80:
+                    document.querySelector('img[src$="4.jpg"]').style.display = 'inline-block';
+                    break;
+                case value <= 120:
+                    document.querySelector('img[src$="5.jpg"]').style.display = 'inline-block';
+                    break;
+                default:
+                    document.querySelector('img[src$="6.jpg"]').style.display = 'inline-block';
+            }
+        }
+
+        function displayAdditionalInfo() {
+            var additionalInfo = document.getElementById('additionalInfo');
+            additionalInfo.style.display = 'block'; // Show additional info
+
+            // Display calculated values for Stevdza, Nele, and Igor
+            var sum = parseFloat(document.getElementById('inputX').value) + parseFloat(document.getElementById('inputX1').value);
+            var stevdza = sum / 4;
+            var nele = sum / 4;
+            var igor = sum / 4;
+
+            document.getElementById('stevdza').value = stevdza.toFixed(2);
+            document.getElementById('nele').value = nele.toFixed(2);
+            document.getElementById('igor').value = igor.toFixed(2);
+
+            // Show the input containers
+            var inputContainers = document.querySelectorAll('.input-container');
+            inputContainers.forEach(function(container) {
+                container.style.display = 'block';
+            });
+        }
+    </script>
+</body>
+</html>

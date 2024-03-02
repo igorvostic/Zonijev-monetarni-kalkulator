@@ -1,0 +1,201 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	
+	background-color:#f5f5f5;
+	
+}
+
+header{
+	
+	background-color: #f5f5f5;
+	width:100%;
+	height:100px;
+}
+
+.header-logo {
+	font-family:Roboto;
+	font-size:24px;
+	font-weight:300;
+	color:#111;
+	display:block;
+	margin: 0 auto;
+	float:left;
+	margin-top:60px;
+	padding-left:10px;
+	padding-right: 10px;
+	
+}
+
+.header-logo:hover{
+	cursor: pointer;
+	text-shadow: 1px 1px 1px #c0c0c0;
+	
+	transition:0.3s;
+}
+
+header nav ul {
+	display:block;
+	margin: 0 auto;
+	float:right;
+	padding-top:70px;
+	padding-right:20px;
+	text-transform: uppercase;
+}
+
+header nav ul li {
+	display:inline-block;
+	list-style:none;
+	margin-left: 12px;
+}
+
+header nav ul li a{
+	font-family:Roboto;
+	font-size:22px;
+	font-weight:300;
+	color:#111;
+}
+
+header nav ul li a:hover{
+	cursor: pointer;
+	text-shadow: 1px 1px 1px #c0c0c0;
+	transition:0.3s;
+}
+
+.slideshow-container{
+	max-width:100%;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.mySlides {
+	display: none;
+	
+}
+
+.slideshow-container img{
+	width:100%;
+	height: 500px;
+}
+
+.slideshow-dots{
+	text-align:center;
+}
+
+.dot{
+	cursor:pointer;
+	height:15px;
+	margin:0 2px;
+	background-color: #bbb;
+	border-radius:50%;
+	display:inline-block;
+	transition:background-color 0.6s ease;
+}
+
+.dot:hover {
+	background-color: #717171;
+}
+
+.fade{
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 2s;
+	animation-name: fade;
+	animation-duration: 2s;
+}
+@-webkit-keyframes fade {
+	from {opacity:.4}
+	to {opacity: 1;}
+}
+
+@keyframes fade {
+	from {opacity: .4}
+	to {opacity: 1}
+}
+
+h1 {
+	text-align: center;
+	font-family: Roboto;
+}
+.collapsible {
+	background-color: #f5f5f5;
+	color: #000;
+	cursor: pointer;
+	padding: 16px;
+	width: 100%;
+	border: none;
+	font-family: Roboto;
+	text-align: center;
+	outline: none;
+	font-size: 22px;
+	text-transform: uppercase;
+	
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+	background-color: #ccc;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+	padding: 0 20px;
+	display: none;
+	overflow: hidden;
+	background-color: #ccc;
+	text-align: center;
+	font-size: 22px;
+	font-family: Roboto;
+	width:100%;
+  }
+
+  .index-imagegrid{
+	font-family: Roboto;
+	font-size: 24px;
+	text-align: center;
+	display: inline-block;
+	margin: 0 auto;
+	margin-bottom: 100px;
+	
+  }
+
+  .index-imagegrid p{
+	  text-align: center;
+	  font-family: Roboto;
+	  font-size: 30px;
+	  text-transform: uppercase;
+	  margin-bottom: 100px;
+	  
+  }
+
+.index-imagegrid img{
+	width:25%;
+	height:auto;
+	margin-right: 50px;
+}
+
+footer {
+	background-color:#ccc;
+	width: 100%;
+	height: 150px;
+	
+	
+	overflow:hidden;
+	font-family: Roboto;
+	font-size: 20px;
+}
+
+.wrapper{
+	width: 50%;
+	margin-top: 50px;
+	margin-left: 33%;
+	
+}
+
+.wrapper a{
+	text-decoration: none;
+	color: #000;
+	padding-left: 30px;
+}
